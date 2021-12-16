@@ -1,21 +1,41 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, StatusBar } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native'
+import Routes from './src/routes';
+import Login from './src/pages/Login';
+import Home from './src/pages/Home';
+import Detalhe from './src/pages/Detalhe';
+import Carrinho from './src/pages/Carrinho';
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import CarrinhoProvider from './src/context/carrinho';
+import { useCarrinho } from './src/context/carrinho';
 
+const Stack = createNativeStackNavigator()
+const Tab = createBottomTabNavigator()
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <CarrinhoProvider>
+      <NavigationContainer >
+        <StatusBar backgroundColor="#583479" />
+        <Stack.Navigator
+          screenOptions={{
+            headerStyle: {
+              backgroundColor: '#583479',
+            },
+            headerTintColor: "white"
+          }}
+        >
+          <Stack.Screen name="Login" component={Login} />
+          <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
+          <Stack.Screen name="Detalhe" component={Detalhe}options={{ headerShown: false }} />
+          <Stack.Screen name="Carrinho" component={Carrinho}options={{ headerShown: false }}  />
+         
+        </Stack.Navigator>          
+      </NavigationContainer>
+    </CarrinhoProvider>
+
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
