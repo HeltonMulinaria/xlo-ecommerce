@@ -12,10 +12,10 @@ import Api from "../../Services/Api";
 import { Ionicons } from "@expo/vector-icons";
 import { Card } from "react-native-elements";
 import { StackActions } from "@react-navigation/native";
+import {Badge,withBadge } from "react-native-elements";
 
 export default function Home({ navigation }) {
   const [produtos, setProdutos] = useState([]);
- 
 
   useEffect(async () => {
     await Api.get("/produto/").then((response) => {
@@ -25,8 +25,14 @@ export default function Home({ navigation }) {
 
   return (
     <>
-    
-      <View style={{ width: "100%", height: "7%", backgroundColor: "#583479" }}>
+      <View
+        style={styles.navTopo}
+      >
+        <Badge
+          value="2"
+          status="error"
+          containerStyle={styles.badge}
+        />
         <Text style={styles.iconsMenuDireita}>
           <Ionicons
             name="cart-outline"
@@ -35,7 +41,8 @@ export default function Home({ navigation }) {
             onPress={() => {
               navigation.navigate("Carrinho");
             }}
-          />{" "}
+          />
+          {"    "}
           <Ionicons
             name="exit-outline"
             size={24}

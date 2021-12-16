@@ -5,6 +5,7 @@ import { Ionicons } from "@expo/vector-icons";
 import Api from "../../Services/Api";
 import { Card } from "react-native-elements";
 import { useCarrinho } from "../../context/carrinho";
+import { Badge, withBadge } from "react-native-elements";
 
 export default function Detalhe({ route, navigation, navigation: { goBack } }) {
   const { id } = route.params;
@@ -24,7 +25,11 @@ export default function Detalhe({ route, navigation, navigation: { goBack } }) {
         <Text style={styles.iconsMenuEsquerda} onPress={() => goBack()}>
           <Ionicons name="arrow-back" size={24} color="white" />
         </Text>
-
+        <Badge
+          value="2"
+          status="error"
+          containerStyle={styles.badge}
+        />
         <Text style={styles.iconsMenuDireita}>
           <Ionicons
             name="cart-outline"
@@ -33,12 +38,13 @@ export default function Detalhe({ route, navigation, navigation: { goBack } }) {
             onPress={() => {
               navigation.navigate("Carrinho");
             }}
-          />{" "}
+          />
+          {"    "}
           <Ionicons
             name="exit-outline"
             size={24}
             color="white"
-            onPress={()=> navigation.dispatch(StackActions.popToTop())}
+            onPress={() => navigation.dispatch(StackActions.popToTop())}
           />
         </Text>
       </View>
@@ -69,13 +75,10 @@ export default function Detalhe({ route, navigation, navigation: { goBack } }) {
       </Card>
     </View>
   );
-  
 }
 // const { carrinho } = useCarrinho();
 //   function IconWithBadge() {
 //     return (
-//       <View style={{ width: 24, height: 24, margin: 5 }}>
 //         <Text>{Object.key(carrinho).length} </Text>
-//       </View>
 //     );
 //   }

@@ -7,9 +7,15 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-
-  letras: {
-    backgroundColor: "#BDB76B"
+  navTopo: {
+    width: "100%",
+    height: "10%",
+    backgroundColor: "#583479"
+  },
+  badge: {
+    position: "absolute",
+    right: "15%",
+    top: "10%"
   },
   iconsMenuEsquerda: {
     position: "absolute",
@@ -19,7 +25,7 @@ export const styles = StyleSheet.create({
   iconsMenuDireita: {
     position: "absolute",
     right: "5%",
-    top: "20%",
+    top: "25%",
     color: "white",
     fontSize: 20
   },

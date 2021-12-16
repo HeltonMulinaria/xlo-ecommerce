@@ -7,23 +7,33 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  flatList: {
+  navTopo: {
     width: "100%",
-    padding: 10,
-    backgroundColor: "#e3e3e3"
+    height: "10%",
+    backgroundColor: "#583479"
   },
+  
   iconsMenuEsquerda: {
     position: "absolute",
     left: "5%",
     top: "20%"
   },
+  badge: {
+    position: "absolute",
+    right: "15%",
+    top: "10%"
+  },
   iconsMenuDireita: {
-
     position: "absolute",
     right: "5%",
-    top: "20%",
+    top: "25%",
     color: "white",
     fontSize: 20
+  },
+  flatList: {
+    width: "100%",
+    padding: 10,
+    backgroundColor: "#e3e3e3"
   },
 
   cardCarrinho: {
@@ -34,7 +44,6 @@ export const styles = StyleSheet.create({
   },
   buttonExcluir: {
     height: 40,
-    title: "Excluir",
     width: "40%",
     borderStyle: "solid",
     borderWidth: 2,

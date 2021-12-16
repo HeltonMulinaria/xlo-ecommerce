@@ -3,6 +3,7 @@ import { Text, View, FlatList, TouchableOpacity, Button } from "react-native";
 import { useCarrinho } from "../../context/carrinho";
 import { styles } from "./styles";
 import { Ionicons } from "@expo/vector-icons";
+import { Badge, withBadge } from "react-native-elements";
 
 const iconAdd = <Ionicons name="add-circle" size={24} color="#ea651d" />;
 const iconRemove = <Ionicons name="remove-circle" size={24} color="#ea651d" />;
@@ -12,11 +13,15 @@ export default function Carrinho({ navigation, navigation: { goBack } }) {
 
   return (
     <>
-      <View style={{ width: "100%", height: "7%", backgroundColor: "#583479" }}>
+      <View style={styles.navTopo}>
         <Text style={styles.iconsMenuEsquerda} onPress={() => goBack()}>
           <Ionicons name="arrow-back" size={24} color="white" />
         </Text>
-
+        <Badge
+          value="2"
+          status="error"
+          containerStyle={styles.badge}
+        />
         <Text style={styles.iconsMenuDireita}>
           <Ionicons
             name="cart-outline"
@@ -26,7 +31,7 @@ export default function Carrinho({ navigation, navigation: { goBack } }) {
               navigation.navigate("Carrinho");
             }}
           />
-          {"  "}
+           {"    "}
           <Ionicons
             name="exit-outline"
             size={24}
@@ -48,9 +53,7 @@ export default function Carrinho({ navigation, navigation: { goBack } }) {
 
               <View style={styles.boxQuantidadeProduto}>
                 <TouchableOpacity
-                  onPress={() => setQuantidade((quantidade) => quantidade - 1)
-                  
-                  }
+                  onPress={() => setQuantidade((quantidade) => quantidade - 1)}
                 >
                   <Text>{iconRemove}</Text>
                 </TouchableOpacity>
@@ -84,7 +87,9 @@ export default function Carrinho({ navigation, navigation: { goBack } }) {
           paddingStart: 30,
         }}
       >
-        <Text style={{ fontSize: 24, fontWeight: "bold" }}>Total R$ {valorTotal}</Text>
+        <Text style={{ fontSize: 24, fontWeight: "bold" }}>
+          Total R$ {valorTotal}
+        </Text>
       </View>
     </>
   );

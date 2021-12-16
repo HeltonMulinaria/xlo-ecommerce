@@ -19,10 +19,15 @@ export const styles = StyleSheet.create({
     left: "5%",
     top: "20%"
   },
+  badge: {
+    position: "absolute",
+    right: "15%",
+    top: "10%"
+  },
   iconsMenuDireita: {
     position: "absolute",
     right: "5%",
-    top: "20%",
+    top: "25%",
     color: "white",
     fontSize: 20
   },
@@ -53,7 +58,6 @@ export const styles = StyleSheet.create({
   buttonAdicionarAoCarrinho: {
     marginTop: 20,
     height: 50,
-    title: "Entrar",
     width: "100%",
     backgroundColor: "#ea651d",
     borderRadius: 25,
@@ -64,8 +68,4 @@ export const styles = StyleSheet.create({
     alignSelf: "center",
     fontSize: 22
   }
-
-
-
-
 });

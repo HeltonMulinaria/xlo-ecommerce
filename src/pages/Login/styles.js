@@ -31,7 +31,7 @@ export const styles = StyleSheet.create({
     alignSelf: "center"
   },
   boxLogin: {
-    heigth: 400,
+    height: 400,
     width: "100%",
     alignItems: "center",
     marginTop: 20,
@@ -53,7 +53,6 @@ export const styles = StyleSheet.create({
   },
   buttonEntrar: {
     height: 50,
-    title: "Entrar",
     width: "70%",
     backgroundColor: "#ea651d",
     borderRadius: 25,
